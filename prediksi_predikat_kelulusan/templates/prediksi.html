@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content%}
+
+<div class="container-xxl py-5 bg-primary hero-header mb-5">
+    <div class="container my-5 py-5 px-lg-5">
+        <div class="row g-5 py-5">
+            <div class="col-12 text-center">
+                <h1 class="text-white animated zoomIn">Predict</h1>
+                <hr class="bg-white mx-auto mt-0" style="width: 90px;">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="text-white" href="/">Home</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Predict</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center">
+        <h1>Masukan Nilai IPS</h1>
+    
+    <form action="{{ url_for('predict')}}" method="post">
+        <!-- <input type="number" name="nama" placeholder="NIM" required>
+        <input type="text" name="nama" placeholder="Nama" required> -->
+        <div class="col-mx-5 mt-4">
+            <input type="number" min="0.0" max="4.0" name="ips1" required placeholder="IPS 1">
+            <input type="number" min="0.0" max="4.0" name="ips2" required placeholder="IPS 2">
+            <input type="number" min="0.0" max="4.0" name="ips3" required placeholder="IPS 3">
+            <input type="number" min="0.0" max="4.0" name="ips4" required placeholder="IPS 4">
+            <input type="number" min="0.0" max="4.0" name="ips5" required placeholder="IPS 5">
+            <input type="number" min="0.0" max="4.0" name="ips6" required placeholder="IPS 6">
+            <input type="number" min="0.0" max="4.0" name="ips7" required placeholder="IPS 7">
+            <input type="number" min="0.0" max="4.0" name="ips8" required placeholder="IPS 8">
+        </div>
+        <div class="mt-5">
+            <button class="btn btn-primary">Predict</button>
+        </div>
+    </form>
+    <div class="mt-5 text-center">
+        <h3 class="">Hasil Predikat :</h2>
+            <br>
+            <br>
+            {% if hasil_prediksi %}
+            <h3 class="text-center">
+                <p style="text-transform: uppercase;">{{hasil_prediksi}}</p>
+            </h3>
+            {% endif %}
+    </div>
+</div>
+
+
+
+
+<hr>
+{% endblock %}
